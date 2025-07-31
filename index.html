@@ -218,6 +218,7 @@
       </div>
       <div>
         <button onclick="showTab('contact')">Nous contacter</button>
+        <button onclick="accesAdmin()">Espace Admin</button>
       </div>
     </nav>
 
@@ -424,6 +425,15 @@
       popup.style.display = 'none';
     }
   });
+
+      function accesAdmin() {
+      const code = prompt("Code administrateur :");
+      if (code === "36903690") {
+        window.location.href = "admin.html";
+      } else {
+        alert("Code incorrect");
+      }
+    }
 </script>
 
 
