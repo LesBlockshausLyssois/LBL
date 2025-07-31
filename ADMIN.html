@@ -9,11 +9,21 @@
       margin: 2rem;
       background-color: #f9f9f9;
     }
+
     h1 {
       color: #2c3e50;
+      margin-bottom: 1rem;
     }
-    iframe {
-      width: 100%;
+
+    .iframe-container {
+      display: flex;
+      gap: 2rem;
+      flex-wrap: wrap;
+    }
+
+    .iframe-container iframe {
+      flex: 1;
+      min-width: 400px;
       height: 80vh;
       border: none;
       box-shadow: 0 0 10px rgba(0,0,0,0.1);
@@ -21,7 +31,14 @@
   </style>
 </head>
 <body>
-  <h1>Résultats du formulaire de commentaires</h1>
-  <iframe src="https://docs.google.com/spreadsheets/d/1m8O5xCyuiGEYRew49FVYCwHfn_wQGpYA0K7tdydiKDI/edit?usp=sharing"></iframe>
+  <h1>Panneau Administrateur</h1>
+
+  <div class="iframe-container">
+    <!-- Iframe 1 : Résultats des commentaires -->
+    <iframe src="https://docs.google.com/spreadsheets/d/1m8O5xCyuiGEYRew49FVYCwHfn_wQGpYA0K7tdydiKDI/edit?usp=sharing"></iframe>
+
+    <!-- Iframe 2 : Autre ressource admin -->
+    <iframe src="https://docs.google.com/spreadsheets/d/1pdm02rz6KHvSc7ZFvS6jrHHlHrzjSxSfZ82HgYNGuKU/edit?usp=sharing"></iframe>
+  </div>
 </body>
 </html>
