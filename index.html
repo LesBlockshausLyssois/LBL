@@ -215,5 +215,86 @@
       }
     }
   </script>
+
+  <!-- POPUP CONDITIONS D'UTILISATION -->
+<div id="popup-conditions" style="
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.85);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+  font-family: 'Segoe UI', sans-serif;
+">
+  <div style="
+    background: white;
+    width: 90%;
+    max-width: 650px;
+    height: 70vh;
+    display: flex;
+    flex-direction: column;
+    border-radius: 10px;
+    box-shadow: 0 0 15px rgba(0,0,0,0.5);
+    overflow: hidden;
+  ">
+    <!-- Texte scrollable -->
+    <div style="padding: 1rem 1.5rem; overflow-y: auto; flex: 1;">
+      <h2>Conditions d'utilisation</h2>
+
+      <p><strong>1. Objet du site</strong><br>
+      Le site Les Blockhaus Lyssois a pour vocation de partager des informations historiques et documentaires sur les blockhaus présents à Lys-lez-Lannoy et dans ses environs. Les ressources fournies (cartes, documents, photos, etc.) sont destinées à un usage éducatif et informatif uniquement.</p>
+
+      <p><strong>2. Propriété intellectuelle</strong><br>
+      Les photos sont interdites à la reproduction.<br>
+      Il est interdit de reproduire, copier, modifier, diffuser ou exploiter ces contenus sans autorisation écrite préalable.</p>
+
+      <p><strong>3. Utilisation des cartes</strong><br>
+      Les cartes fournies ont pour seul but de localiser des blockhaus à des fins de recherche, de mémoire ou de curiosité historique.<br><br>
+      L'utilisateur s'engage à ne pas utiliser ces cartes :<br>
+      - À des fins illégales (ex. : intrusion, vandalisme, vol)<br>
+      - Pour accéder à des propriétés privées sans autorisation<br>
+      - Pour causer des perturbations ou des nuisances<br><br>
+      Le groupe Les Blockhaus Lyssois décline toute responsabilité en cas de comportement inapproprié, d'accident ou de violation de la loi.</p>
+
+      <p><strong>4. Respect de la propriété privée</strong><br>
+      Certains blockhaus sont situés sur des terrains privés. Il est strictement interdit d’y accéder sans l’accord explicite du propriétaire. Le respect de la vie privée des riverains et des règles de droit est une priorité.</p>
+
+      <p><strong>5. Sécurité et responsabilité</strong><br>
+      Toute exploration sur le terrain reste à l’initiative de l’utilisateur.<br>
+      Les Blockhaus Lyssois n’encouragent pas l’exploration physique de ces lieux. En cas d’accident ou d’incident, le site et ses administrateurs ne pourront en aucun cas être tenus responsables.</p>
+
+      <p><strong>6. Données personnelles</strong><br>
+      Le formulaire de contact peut recueillir des données personnelles (adresse email). Celles-ci ne seront jamais partagées ou revendues, et ne serviront qu’à répondre aux demandes reçues.</p>
+
+      <p><strong>7. Acceptation des conditions</strong><br>
+      En accédant à ce site, vous reconnaissez avoir lu, compris et accepté les présentes conditions d'utilisation.</p>
+    </div>
+
+    <!-- Pied avec checkbox et bouton -->
+    <div style="padding: 1rem 1.5rem; border-top: 1px solid #ccc;">
+      <label style="display: block; margin-bottom: 0.75rem;">
+        <input type="checkbox" id="accept-checkbox" />
+        J'ai lu et j'accepte les conditions d'utilisation
+      </label>
+      <button id="continue-button" disabled style="
+        width: 100%;
+        padding: 0.75rem;
+        background-color: #999;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        font-size: 1rem;
+        cursor: not-allowed;
+      ">
+        Continuer
+      </button>
+    </div>
+  </div>
+</div>
+  
 </body>
 </html>
