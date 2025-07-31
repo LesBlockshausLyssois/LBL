@@ -216,36 +216,11 @@
       }
     }
   </script>
-
-<!-- POPUP CONDITIONS D'UTILISATION -->
-<div id="popup-conditions" style="
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 100vh;
-  background: rgba(0, 0, 0, 0.85);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  z-index: 9999;
-  font-family: 'Segoe UI', sans-serif;
-">
-  <div style="
-    background: white;
-    width: 90%;
-    max-width: 650px;
-    height: 70vh;
-    display: flex;
-    flex-direction: column;
-    border-radius: 10px;
-    box-shadow: 0 0 15px rgba(0,0,0,0.5);
-    overflow: hidden;
-  ">
-    <!-- Texte scrollable -->
-    <div style="padding: 1rem 1.5rem; overflow-y: auto; flex: 1;">
-      <h2>Conditions d'utilisation</h2>
-
+<!-- POPUP CONDITIONS -->
+  <div id="popup-conditions" style="position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; background: rgba(0,0,0,0.85); display: flex; justify-content: center; align-items: center; z-index: 9999; transition: opacity 0.3s ease;">
+    <div style="background: white; width: 90%; max-width: 650px; height: 70vh; display: flex; flex-direction: column; border-radius: 10px; box-shadow: 0 0 15px rgba(0,0,0,0.5); overflow: hidden;">
+      <div style="padding: 1rem 1.5rem; overflow-y: auto; flex: 1;">
+        <h2>Conditions d'utilisation</h2>
       <p><strong>1. Objet du site</strong><br>
       Le site Les Blockhaus Lyssois a pour vocation de partager des informations historiques et documentaires sur les blockhaus présents à Lys-lez-Lannoy et dans ses environs. Les ressources fournies (cartes, documents, photos, etc.) sont destinées à un usage éducatif et informatif uniquement.</p>
 
@@ -273,28 +248,53 @@
 
       <p><strong>7. Acceptation des conditions</strong><br>
       En accédant à ce site, vous reconnaissez avoir lu, compris et accepté les présentes conditions d'utilisation.</p>
-    </div>
-
-    <!-- Pied avec checkbox et bouton -->
-    <div style="padding: 1rem 1.5rem; border-top: 1px solid #ccc;">
-      <label style="display: block; margin-bottom: 0.75rem;">
-        <input type="checkbox" id="accept-checkbox" />
-        J'ai lu et j'accepte les conditions d'utilisation
-      </label>
-      <button id="continue-button" disabled style="
-        width: 100%;
-        padding: 0.75rem;
-        background-color: #999;
-        color: white;
-        border: none;
-        border-radius: 5px;
-        font-size: 1rem;
-        cursor: not-allowed;
-      ">
-        Continuer
-      </button>
+      </div>
+      <div style="padding: 1rem 1.5rem; border-top: 1px solid #ccc;">
+        <label style="display: block; margin-bottom: 0.75rem;">
+          <input type="checkbox" id="accept-checkbox" />
+          J'ai lu et j'accepte les conditions d'utilisation
+        </label>
+        <button id="continue-button" disabled style="width: 100%; padding: 0.75rem; background-color: #999; color: white; border: none; border-radius: 5px; font-size: 1rem; cursor: not-allowed;">
+          Continuer
+        </button>
+      </div>
     </div>
   </div>
+
+  <script>
+    function showTab(tabId) {
+      document.querySelectorAll('.tab-content').forEach(tab => tab.classList.remove('active'));
+      document.getElementById(tabId).classList.add('active');
+    }
+
+    function toggleTheme() {
+      const current = document.documentElement.getAttribute("data-theme");
+      document.documentElement.setAttribute("data-theme", current === "dark" ? "light" : "dark");
+    }
+
+    const checkbox = document.getElementById('accept-checkbox');
+    const button = document.getElementById('continue-button');
+    const popup = document.getElementById('popup-conditions');
+
+    checkbox.addEventListener('change', function () {
+      button.disabled = !this.checked;
+      button.style.cursor = this.checked ? 'pointer' : 'not-allowed';
+      button.style.backgroundColor = this.checked ? '#2ecc71' : '#999';
+    });
+
+    button.addEventListener('click', function () {
+      if (checkbox.checked) {
+        popup.style.opacity = '0';
+        setTimeout(() => popup.style.display = 'none', 300);
+      }
+    });
+  </script>
+
+
+
+  
+
+    
 </div>
   
 </body>
