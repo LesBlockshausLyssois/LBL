@@ -2,228 +2,111 @@
 <html lang="fr">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Les Blockhaus Lyssois</title>
-  <link rel="icon" type="image/png" href="https://i.postimg.cc/QNR1wwC3/LBL-2.png" />
   <style>
-    body {
-      margin: 0;
-      font-family: 'Segoe UI', sans-serif;
-      background-color: #f5f5f5;
-      color: #333;
-    }
-
+    * { box-sizing: border-box; }
+    body { margin: 0; font-family: 'Segoe UI', sans-serif; }
     header {
-      background-color: #2c3e50;
+      width: 100%;
+      background-color: #2f3e46;
       color: white;
       padding: 1rem;
       text-align: center;
-      font-size: 1.5rem;
-      font-weight: bold;
+      font-size: 1.8rem;
     }
-
-    .container {
+    .content {
       display: flex;
-      height: calc(100vh - 60px);
+      height: calc(100vh - 70px);
     }
-
-    nav {
+    .sidebar {
       width: 220px;
-      background-color: #ecf0f1;
-      padding: 1.5rem 1rem;
-      box-sizing: border-box;
-      border-right: 1px solid #ccc;
+      background-color: #e6eef3;
+      padding: 1rem;
       display: flex;
       flex-direction: column;
       justify-content: space-between;
     }
-
-    .nav-buttons {
-      display: flex;
-      flex-direction: column;
-    }
-
-    nav h2 {
-      margin-top: 0;
-      font-size: 1.2rem;
-      color: #2c3e50;
-    }
-
-    nav button {
-      width: 100%;
-      margin: 0.5rem 0;
-      padding: 0.75rem;
-      background-color: #3498db;
+    .sidebar h3 { text-align: center; margin-bottom: 1rem; }
+    .sidebar button {
+      background-color: #2196f3;
       color: white;
       border: none;
-      border-radius: 5px;
+      padding: 0.75rem;
+      margin-bottom: 1rem;
       cursor: pointer;
+      border-radius: 5px;
+      width: 100%;
+      text-align: center;
       font-size: 1rem;
-      transition: background-color 0.3s;
     }
-
-    nav button:hover {
-      background-color: #2980b9;
-    }
-
-    main {
-      flex: 1;
-      padding: 2rem;
-      background-color: white;
-      overflow-y: auto;
-    }
-
-    .tab-content {
-      display: none;
-    }
-
-    .tab-content.active {
+    .sidebar button:hover { background-color: #1976d2; }
+    .main-container { flex: 1; overflow-y: auto; padding: 2rem; }
+    .tab-content { display: none; }
+    .tab-content.active { display: block; }
+    h1 { font-size: 1.8rem; margin-bottom: 1rem; }
+    p { font-size: 1rem; line-height: 1.6; }
+    strong { font-weight: bold; }
+    .iframe-container {
       display: flex;
-      flex-direction: column;
+      gap: 2rem;
+      flex-wrap: wrap;
+      margin-top: 1rem;
     }
-
-    .cartes-layout {
-      display: flex;
+    .iframe-container iframe,
+    .cartes-section iframe,
+    .cartes-content iframe,
+    #contact iframe {
       width: 100%;
+      height: 80vh;
+      border: none;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
     }
 
-    .cartes-menu {
-      width: 280px;
-      background-color: #f0f0f0;
-      padding: 1rem;
-      border-right: 1px solid #ccc;
-    }
-
+    .cartes-layout, .cartes-content, .cartes-section { width: 100%; }
     .cartes-menu button {
-      width: 100%;
-      margin: 0.5rem 0;
-      padding: 0.75rem;
-      background-color: #7f8c8d;
-      color: white;
+      background-color: #ccc;
       border: none;
-      border-radius: 5px;
+      padding: 0.5rem;
+      margin: 0.25rem;
       cursor: pointer;
-      font-size: 0.95rem;
-      text-align: left;
-      transition: background-color 0.3s;
+      border-radius: 4px;
+    }
+    .cartes-section { display: none; }
+
+    .cartes-section.active { display: block; margin-top: 1rem; }
+    
+    .contact-iframe-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      margin-top: 1rem;
     }
 
-    .cartes-menu button:hover {
-      background-color: #5d6d7e;
-    }
-
-    .cartes-content {
+    .contact-iframe-row iframe {
       flex: 1;
-      padding: 1rem 2rem;
-    }
-
-    .cartes-section {
-      display: none;
-    }
-
-    .cartes-section.active {
-      display: block;
-    }
-
-    iframe {
-      width: 100%;
-      height: 600px;
+      min-width: 400px;
+      height: 80vh;
       border: none;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
     }
-    /* RESPONSIVE MOBILE */
-@media (max-width: 768px) {
-  .container {
-    flex-direction: column;
-    height: auto;
-  }
-
-  nav {
-    width: 100%;
-    border-right: none;
-    border-bottom: 1px solid #ccc;
-    flex-direction: row;
-    flex-wrap: wrap;
-    padding: 1rem 0.5rem;
-    justify-content: center;
-    gap: 0.5rem;
-  }
-
-  .nav-buttons {
-    flex-direction: row;
-    flex-wrap: wrap;
-    width: 100%;
-    justify-content: center;
-    gap: 0.5rem;
-  }
-
-  nav button {
-    flex: 1 1 45%;
-    max-width: 180px;
-    margin: 0.25rem;
-    font-size: 0.9rem;
-  }
-
-  main {
-    padding: 1rem;
-  }
-
-  .cartes-layout {
-    flex-direction: column;
-  }
-
-  .cartes-menu {
-    width: 100%;
-    border-right: none;
-    border-bottom: 1px solid #ccc;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 0.5rem;
-    padding: 0.5rem;
-  }
-
-  .cartes-menu button {
-    flex: 1 1 45%;
-    font-size: 0.9rem;
-  }
-
-  .cartes-content {
-    padding: 1rem 0;
-  }
-
-  iframe {
-    height: 400px;
-  }
-
-  #popup-conditions > div {
-    width: 95%;
-    height: 90vh;
-  }
-}
 
   </style>
 </head>
 <body>
-  <header>
-    Les Blockshaus Lyssois
-  </header>
-
-  <div class="container">
-    <nav>
-      <div class="nav-buttons">
-        <h2>Recources :</h2>
+  <header>Les Blockhaus Lyssois</header>
+  <div class="content">
+    <aside class="sidebar">
+      <div>
+        <h3>Ressources :</h3>
         <button onclick="showTab('groupe')">Tout savoir sur le groupe</button>
         <button onclick="showTab('docs')">Docs</button>
         <button onclick="showTab('cartes')">Cartes</button>
+        <button onclick="askAdminCode()">ADMIN</button>
       </div>
-      <div>
-        <button onclick="showTab('contact')">Nous contacter</button>
-        <button onclick="accesAdmin()">Espace Admin</button>
-      </div>
-    </nav>
-
-    <main>
-      <!-- Onglet Groupe -->
+      <button onclick="showTab('contact')">Nous contacter</button>
+    </aside>
+    <div class="main-container">
       <div id="groupe" class="tab-content active">
         <h1>À propos du groupe</h1>
         <p><strong>Les Blockhaus Lyssois : Histoire, Mémoire et Passion</strong></p>
@@ -239,206 +122,98 @@
         </p>
         <p><strong>Rejoignez "Les Blockhaus Lyssois"</strong> pour partager votre passion, contribuer à la sauvegarde de notre histoire et découvrir ensemble les secrets de ces fascinantes constructions !</p>
       </div>
-
-      <!-- Onglet Docs -->
       <div id="docs" class="tab-content">
-        <div class="cartes-layout">
-          <div class="cartes-menu">
-            <button onclick="showDocSection('doc-blockhaus')">Les blockhaus</button>
-            <button onclick="showDocSection('doc-types')">Les types de blockhaus</button>
+        <div class="cartes-menu">
+          <button onclick="showDocSection('doc-blockhaus')">Les blockhaus</button>
+          <button onclick="showDocSection('doc-types')">Les types de blockhaus</button>
+        </div>
+        <div class="cartes-content">
+          <div id="doc-blockhaus" class="cartes-section active">
+            <iframe src="https://docs.google.com/document/d/1J8zSqsYBQ3axqsaBVQbgYR95aWcRfXY8g3_0A0qKHl8/edit?usp=sharing"></iframe>
           </div>
-          <div class="cartes-content">
-            <div id="doc-blockhaus" class="cartes-section active">
-              <iframe src="https://docs.google.com/document/d/1J8zSqsYBQ3axqsaBVQbgYR95aWcRfXY8g3_0A0qKHl8/edit?usp=sharing"></iframe>
-            </div>
-            <div id="doc-types" class="cartes-section">
-              <iframe src="https://docs.google.com/document/d/1U-PVw7qjIX9a_w0_ypPkG_-tiE-xsGHdT9ExmfNFZik/edit?usp=sharing"></iframe>
-            </div>
+          <div id="doc-types" class="cartes-section">
+            <iframe src="https://docs.google.com/document/d/1U-PVw7qjIX9a_w0_ypPkG_-tiE-xsGHdT9ExmfNFZik/edit?usp=sharing"></iframe>
           </div>
         </div>
       </div>
 
-      <!-- Onglet Cartes -->
+
       <div id="cartes" class="tab-content">
-        <div class="cartes-layout">
-          <div class="cartes-menu">
-            <button onclick="showCarteSection('intro')">Comment utiliser nos cartes ?</button>
-            <button onclick="showCarteSection('sf-lille')">(Google Earth) Tous les blockhaus du Secteur Fortifié de Lille</button>
-            <button onclick="showCarteSection('lys-lez-lannoy')">(Google Earth) Blockhaus à proximité de Lys Lez Lannoy</button>
-            <button onclick="showCarteSection('ww1')">(Google Earth) Blockhaus WW1 allemands encore existants</button>
+        <div class="cartes-menu">
+          <button onclick="showCarteSection('intro')">Comment utiliser nos cartes ?</button>
+          <button onclick="showCarteSection('sf-lille')">Secteur Fortifié de Lille</button>
+          <button onclick="showCarteSection('lys-lez-lannoy')">Proximité Lys Lez Lannoy</button>
+          <button onclick="showCarteSection('ww1')">WW1 encore existants</button>
+        </div>
+        <div class="cartes-content">
+          <div id="intro" class="cartes-section active">
+            <iframe src="https://docs.google.com/document/d/1Jzigg7uVxinlWrn8m_tWB7tfTqt_JpOJmFEapNo8b_Y/edit?usp=sharing"></iframe>
           </div>
-          <div class="cartes-content">
-            <div id="intro" class="cartes-section active">
-              <iframe src="https://docs.google.com/document/d/1Jzigg7uVxinlWrn8m_tWB7tfTqt_JpOJmFEapNo8b_Y/edit?tab=t.0"></iframe>
-            </div>
-            <div id="sf-lille" class="cartes-section">
-              <h3>Tous les blockhaus du Secteur Fortifié de Lille</h3>
-              <p>Voici le lien pour accéder à la carte Google Earth : 
-                <a href="https://earth.google.com/earth/d/1DS-_KW_HaaLBEMzQVbN8XJyOlxAXzmBk?usp=sharing" target="_blank">ici</a>
-              </p>
-            </div>
-            <div id="lys-lez-lannoy" class="cartes-section">
-              <h3>Blockhaus à proximité de Lys Lez Lannoy</h3>
-              <p>Voici le lien pour accéder à la carte Google Earth : 
-                <a href="https://earth.google.com/earth/d/1gkirO73Bu1NXkVkhJr6S54GKHb1b4yrY?usp=sharing" target="_blank">ici</a>
-              </p>
-            </div>
-            <div id="ww1" class="cartes-section">
-              <h3>Blockhaus WW1 allemands encore existants</h3>
-              <p>Voici le lien pour accéder à la carte Google Earth : 
-                <a href="https://earth.google.com/earth/d/1ubdMm6uHI_0Nltm1WbiJYL2FdQyzoa8U?usp=sharing" target="_blank">ici</a>
-              </p>
-            </div>
+
+          <div id="sf-lille" class="cartes-section">
+            <p>La carte du Secteur Fortifié de Lille est disponible <a href="https://earth.google.com/earth/d/1DS-_KW_HaaLBEMzQVbN8XJyOlxAXzmBk?usp=sharing" target="_blank">ici</a> !</p>
           </div>
+
+          <div id="lys-lez-lannoy" class="cartes-section">
+            <p>La carte des Blockhaus a proximité Lys Lez Lannoy est disponible <a href="https://earth.google.com/earth/d/1gkirO73Bu1NXkVkhJr6S54GKHb1b4yrY?usp=sharing" target="_blank">ici</a> !</p>
+          </div>
+
+          <div id="ww1" class="cartes-section">
+            <p>La carte des blockhaus WW1 encore existants est disponible <a href="https://earth.google.com/earth/d/1ubdMm6uHI_0Nltm1WbiJYL2FdQyzoa8U?usp=sharing" target="_blank">ici</a> !</p>
+          </div>
+
         </div>
       </div>
+      
 
-      <!-- Onglet Contact -->
+
       <div id="contact" class="tab-content">
-        <div>
-          <h2>Contactez-nous</h2>
-          <p><strong>Email :</strong> lesblockhauslyssois@gmail.com</p>
-          <p><strong>↶ Ou envoi directement ta demande ici ! ↷</strong></p>
-          <iframe src="https://forms.gle/2PLPZFR6C9WykwAP7" allowfullscreen></iframe>
-          <p>©muller.G_08/2025</p>
+        <h2>Contactez-nous</h2>
+        <p><strong>Email :</strong> lesblockhauslyssois@gmail.com</p>
+        <p><strong>↶ Ou envoi directement ta demande ici ! ↷</strong></p>
+
+        <div class="contact-iframe-row">
+          <!-- Iframe 1 : formulaire de contact -->
+          <iframe src="https://forms.gle/RuJHYxs7H9nse5938">Chargement…</iframe>
+
+          <!-- Iframe 2 : par exemple une feuille Google Sheets ou autre -->
+          <iframe src="https://forms.gle/LswaLnr43nLK3QYV9">Chargement…</iframe>
+        </div>
+
+        <p>©muller.G_08/2025</p>
+      </div>
+
+
+      <div id="admin" class="tab-content">
+        <h1>Panneau Administrateur</h1>
+        <div class="iframe-container">
+          <iframe src="https://docs.google.com/spreadsheets/d/1m8O5xCyuiGEYRew49FVYCwHfn_wQGpYA0K7tdydiKDI/edit?usp=sharing"></iframe>
+          <iframe src="https://docs.google.com/spreadsheets/d/1pdm02rz6KHvSc7ZFvS6jrHHlHrzjSxSfZ82HgYNGuKU/edit?usp=sharing"></iframe>
         </div>
       </div>
-    </main>
+    </div>
   </div>
-
   <script>
-    function showTab(tabId) {
-      document.querySelectorAll('.tab-content').forEach(tab => tab.classList.remove('active'));
-      document.getElementById(tabId).classList.add('active');
-
-      if (tabId === 'cartes') {
-        showCarteSection('intro');
-      } else if (tabId === 'docs') {
-        showDocSection('doc-blockhaus');
+    function showTab(id) {
+      document.querySelectorAll('.tab-content').forEach(el => el.classList.remove('active'));
+      document.getElementById(id).classList.add('active');
+    }
+    function showDocSection(id) {
+      document.querySelectorAll('#docs .cartes-section').forEach(el => el.classList.remove('active'));
+      document.getElementById(id).classList.add('active');
+    }
+    function showCarteSection(id) {
+      document.querySelectorAll('#cartes .cartes-section').forEach(el => el.classList.remove('active'));
+      document.getElementById(id).classList.add('active');
+    }
+    function askAdminCode() {
+      const code = prompt("Entrez le code administrateur :");
+      if (code === "admin123") {
+        showTab("admin");
+      } else if (code !== null) {
+        alert("Code incorrect.");
       }
-    }
-
-    function showCarteSection(sectionId) {
-      document.querySelectorAll('#cartes .cartes-section').forEach(sec => sec.classList.remove('active'));
-      document.getElementById(sectionId).classList.add('active');
-    }
-
-    function showDocSection(sectionId) {
-      document.querySelectorAll('#docs .cartes-section').forEach(sec => sec.classList.remove('active'));
-      document.getElementById(sectionId).classList.add('active');
     }
   </script>
-
-<!-- POPUP CONDITIONS D'UTILISATION -->
-<div id="popup-conditions" style="
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 100vh;
-  background: rgba(0, 0, 0, 0.85);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  z-index: 9999;
-  font-family: 'Segoe UI', sans-serif;
-">
-  <div style="
-    background: white;
-    width: 90%;
-    max-width: 650px;
-    height: 70vh;
-    display: flex;
-    flex-direction: column;
-    border-radius: 10px;
-    box-shadow: 0 0 15px rgba(0,0,0,0.5);
-    overflow: hidden;
-  ">
-    <!-- Texte scrollable -->
-    <div style="padding: 1rem 1.5rem; overflow-y: auto; flex: 1;">
-      <h2>Conditions d'utilisation</h2>
-
-      <p><strong>1. Objet du site</strong><br>
-      Le site Les Blockhaus Lyssois a pour vocation de partager des informations historiques et documentaires sur les blockhaus présents à Lys-lez-Lannoy et dans ses environs. Les ressources fournies (cartes, documents, photos, etc.) sont destinées à un usage éducatif et informatif uniquement.</p>
-
-      <p><strong>2. Propriété intellectuelle</strong><br>
-      Les photos sont interdites à la reproduction.<br>
-      Il est interdit de reproduire, copier, modifier, diffuser ou exploiter ces contenus sans autorisation écrite préalable.</p>
-
-      <p><strong>3. Utilisation des cartes</strong><br>
-      Les cartes fournies ont pour seul but de localiser des blockhaus à des fins de recherche, de mémoire ou de curiosité historique.<br><br>
-      L'utilisateur s'engage à ne pas utiliser ces cartes :<br>
-      - À des fins illégales (ex. : intrusion, vandalisme, vol)<br>
-      - Pour accéder à des propriétés privées sans autorisation<br>
-      - Pour causer des perturbations ou des nuisances<br><br>
-      Le groupe Les Blockhaus Lyssois décline toute responsabilité en cas de comportement inapproprié, d'accident ou de violation de la loi.</p>
-
-      <p><strong>4. Respect de la propriété privée</strong><br>
-      Certains blockhaus sont situés sur des terrains privés. Il est strictement interdit d’y accéder sans l’accord explicite du propriétaire. Le respect de la vie privée des riverains et des règles de droit est une priorité.</p>
-
-      <p><strong>5. Sécurité et responsabilité</strong><br>
-      Toute exploration sur le terrain reste à l’initiative de l’utilisateur.<br>
-      Les Blockhaus Lyssois n’encouragent pas l’exploration physique de ces lieux. En cas d’accident ou d’incident, le site et ses administrateurs ne pourront en aucun cas être tenus responsables.</p>
-
-      <p><strong>6. Données personnelles</strong><br>
-      Le formulaire de contact peut recueillir des données personnelles (adresse email). Celles-ci ne seront jamais partagées ou revendues, et ne serviront qu’à répondre aux demandes reçues.</p>
-
-      <p><strong>7. Acceptation des conditions</strong><br>
-      En accédant à ce site, vous reconnaissez avoir lu, compris et accepté les présentes conditions d'utilisation.</p>
-    </div>
-
-    <!-- Pied avec checkbox et bouton -->
-    <div style="padding: 1rem 1.5rem; border-top: 1px solid #ccc;">
-      <label style="display: block; margin-bottom: 0.75rem;">
-        <input type="checkbox" id="accept-checkbox" />
-        J'ai lu et j'accepte les conditions d'utilisation
-      </label>
-      <button id="continue-button" disabled style="
-        width: 100%;
-        padding: 0.75rem;
-        background-color: #999;
-        color: white;
-        border: none;
-        border-radius: 5px;
-        font-size: 1rem;
-        cursor: not-allowed;
-      ">
-        Continuer
-      </button>
-    </div>
-  </div>
-</div>
-
-<script>
-  const checkbox = document.getElementById('accept-checkbox');
-  const button = document.getElementById('continue-button');
-  const popup = document.getElementById('popup-conditions');
-
-  checkbox.addEventListener('change', function () {
-    button.disabled = !this.checked;
-    button.style.cursor = this.checked ? 'pointer' : 'not-allowed';
-    button.style.backgroundColor = this.checked ? '#2ecc71' : '#999';
-  });
-
-  button.addEventListener('click', function () {
-    if (checkbox.checked) {
-      popup.style.display = 'none';
-    }
-  });
-
-      function accesAdmin() {
-      const code = prompt("Code administrateur :");
-      if (code === "36903690") {
-        window.location.href = "ADMIN.html";
-      } else {
-        alert("Code incorrect");
-      }
-    }
-</script>
-
-
-
-
-
 </body>
 </html>
