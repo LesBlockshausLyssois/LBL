@@ -1,5 +1,5 @@
 <?php
-$correct_code = "LBL2025"; // <-- Ton code ici
+$correct_code = "CODE"; // <-- Ton code ici
 
 if (isset($_GET['code']) && $_GET['code'] === $correct_code) {
     // Redirection vers la vraie page admin
