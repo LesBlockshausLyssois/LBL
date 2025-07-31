@@ -215,6 +215,7 @@
         <button onclick="showTab('groupe')">Tout savoir sur le groupe</button>
         <button onclick="showTab('docs')">Docs</button>
         <button onclick="showTab('cartes')">Cartes</button>
+        <button onclick="accessAdmin()">ADMIN</button>
       </div>
       <div>
         <button onclick="showTab('contact')">Nous contacter</button>
@@ -426,7 +427,15 @@
   });
 </script>
 
-
+<script>
+  function accessAdmin() {
+    const code = prompt("Veuillez entrer le code administrateur :");
+    if (code !== null) {
+      // Envoi vers admin.php avec le code en paramètre GET
+      window.location.href = "admin.php?code=" + encodeURIComponent(code);
+    }
+  }
+</script>
 
 
 
