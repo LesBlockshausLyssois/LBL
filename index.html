@@ -5,11 +5,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Les Blockhaus Lyssois</title>
   <link rel="icon" type="image/png" href="https://i.postimg.cc/QNR1wwC3/LBL-2.png" />
-
-  <meta name="description" content="Le groupe "Les Blockhaus Lyssois" est né d'une passion commune pour l'histoire et le patrimoine local, plus précisément celui des blockhaus présents sur le territoire de Lys-lez-Lannoy et ses environs. Notre objectif principal est de préserver la mémoire de ces constructions, témoins silencieux d'un passé souvent douloureux mais toujours fascinant.">
-  <meta name="keywords" content="Blockshaus, nord, lyslezlannoy, lannoy, leers, roubaix, bunker, docs, document, cartes, pas de callais">
-
-  
   <style>
     * { box-sizing: border-box; }
     body { margin: 0; font-family: 'Segoe UI', sans-serif; }
@@ -109,12 +104,16 @@
         <button onclick="showTab('docs')">Docs</button>
         <button onclick="showTab('cartes')">Cartes</button>
         <button onclick="showTab('reseaux')">Nos réseaux</button>
+        <button onclick="showTab('nouveautes')">Les nouveautés !</button>
         
       </div>
       <button onclick="showTab('contact')">Nous contacter</button>
       <button onclick="askAdminCode()">ADMIN</button>
     </aside>
     <div class="main-container">
+      
+      <!--tout savoir sur le groupe-->
+
       <div id="groupe" class="tab-content active">
         <h1>À propos du groupe</h1>
         <p><strong>Les Blockhaus Lyssois : Béton, histoire et mémoire</strong></p>
@@ -130,6 +129,9 @@
         </p>
         <p><strong>Rejoignez "Les Blockhaus Lyssois"</strong> pour partager votre passion, contribuer à la sauvegarde de notre histoire et découvrir ensemble les secrets de ces fascinantes constructions !</p>
       </div>
+
+
+      <!--Docs-->
 
       <div id="docs" class="tab-content">
         <div class="cartes-menu">
@@ -150,6 +152,8 @@
         </div>
       </div>
 
+
+      <!--cartes-->
 
       <div id="cartes" class="tab-content">
         <div class="cartes-menu">
@@ -178,6 +182,9 @@
         </div>
       </div>
       
+
+      <!--Reseaux-->
+
       <div id="reseaux" class="tab-content">
         <h2>Nos reseaux</h2>
         <p>
@@ -186,6 +193,18 @@
           <strong><a href="https://discord.gg/RgNtceQY79" target="_blank">Discord</a></strong>
         </p>
       </div>
+
+
+      <!--Nouveautées-->
+
+      <div id="nouveautes" class="tab-content">
+        <h2>↶ Les nouveautés ! ↷</h2>
+          <div id="doc-blockhaus" class="cartes-section active">
+            <iframe src="https://docs.google.com/document/d/1TTZqbkpq91dQOEN0viWwVWYkRpcsjmQ-pJwc-ZSGh54/edit?usp=sharing"></iframe>
+          </div>
+      </div>
+
+      <!--Contacts-->
 
       <div id="contact" class="tab-content">
         <h2>Contactez-nous</h2>
@@ -203,6 +222,8 @@
         <p>©muller.G_08/2025</p>
       </div>
 
+
+      <!--page admin-->
 
       <div id="admin" class="tab-content">
         <h1>Panneau Administrateur</h1>
@@ -235,7 +256,11 @@
       }
     }
   </script>
+
+
 <!-- POPUP CONDITIONS -->
+
+
   <div id="popup-conditions" style="position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; background: rgba(0,0,0,0.85); display: flex; justify-content: center; align-items: center; z-index: 9999; transition: opacity 0.3s ease;">
     <div style="background: white; width: 90%; max-width: 650px; height: 70vh; display: flex; flex-direction: column; border-radius: 10px; box-shadow: 0 0 15px rgba(0,0,0,0.5); overflow: hidden;">
       <div style="padding: 1rem 1.5rem; overflow-y: auto; flex: 1;">
